@@ -24,11 +24,8 @@ h1 {
   color: white;
   transition: all ease-in-out 0.3s;
   outline: none;
-  text-transform: uppercase; }
-  .padsButton:hover {
-    cursor: pointer;
-    color: #000;
-    background: #fff; }
+  text-transform: uppercase;
+  cursor: pointer; }
 
 .padsUl {
   background: #fff;
@@ -42,6 +39,9 @@ h1 {
     font-weight: 500; }
     .padsUl li:nth-of-type(2n) {
       background: #f1f1f1; }
+
+.listDisplay {
+  display: block; }
 
 main .drum-pads-container {
   display: grid;

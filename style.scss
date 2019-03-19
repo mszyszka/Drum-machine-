@@ -27,11 +27,8 @@ h1 {
     transition: all ease-in-out 0.3s;
     outline: none;
     text-transform: uppercase;
-    &:hover {
-        cursor: pointer;
-        color: #000;
-        background: #fff;
-    }
+    cursor: pointer;
+
 }
 .padsUl {
     background: #fff;
@@ -47,6 +44,9 @@ h1 {
             background: #f1f1f1;
         }
     }
+}
+.listDisplay {
+    display: block;
 }
 
 main {
