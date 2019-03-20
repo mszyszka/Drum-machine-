@@ -18,21 +18,32 @@ function createPads(){
     
     for (let i = 0; i <= listItemsLength; i++) {
         listItems.item(i).addEventListener('click', function(e){
+            
             let target = e.target;
             let firstChild = target.firstChild;
             let numberOfpads = firstChild.data;
+            
+            let drumPadsContainer = document.getElementsByClassName('drum-pads-container')[0];
 
             //Create pad element and add to it .drum-pad
             let padElement = document.createElement('div');
             padElement.classList.add('drum-pad');
 
-            //Add to .drum-pads-container padElement
-            let drumPadsContainer = document.getElementsByClassName('drum-pads-container')[0];
-            
-            for(let x = 0; x <= numberOfpads; x++) {
+            //Close .padsUl when user clicks on listItem
+            document.querySelector('.padsUl').classList.remove('listDisplay');
+
+            //Remove childs of drumPadsElemnt when user clicks on listItem to show only pointed number of pads
+            // instead of add extra pads to already existing.
+            while (drumPadsContainer.hasChildNodes()) {
+               drumPadsContainer.removeChild(drumPadsContainer.firstChild);
+            }
+
+            for(let x = 0; x < numberOfpads; x++) {
+                //Add to .drum-pads-container padElement's
                 drumPadsContainer.appendChild(padElement.cloneNode());
             }
-        })
+            
+        });
     }
 }
 
