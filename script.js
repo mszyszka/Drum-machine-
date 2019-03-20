@@ -22,12 +22,16 @@ function createPads(){
             let firstChild = target.firstChild;
             let numberOfpads = firstChild.data;
 
+            //Create pad element and add to it .drum-pad
             let padElement = document.createElement('div');
             padElement.classList.add('drum-pad');
 
+            //Add to .drum-pads-container padElement
             let drumPadsContainer = document.getElementsByClassName('drum-pads-container')[0];
-            drumPadsContainer.appendChild(padElement);
-            console.log(padElement);
+            
+            for(let x = 0; x <= numberOfpads; x++) {
+                drumPadsContainer.appendChild(padElement.cloneNode());
+            }
         })
     }
 }
