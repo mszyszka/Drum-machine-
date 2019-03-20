@@ -8,7 +8,9 @@ padsBtn.addEventListener('click', createPads);
 //Po kliknięciu na elemnet li - x, chcę odpalić funkcję do której przekażę wartość
 // elementu x jako argument. Ta funkcja stworzy plansze z ilościę padów równą x.
 
-//1. Potrzebuję na każdy li zapiąć addEventListener
+//1. Potrzebuję na każdy li zapiąć addEventListener - done
+//2.Potrzebuje do funkcji odpalanej na click przekazać event - done
+//3.Potrzębuję napisać kod który stworzy plansze z ilościę padów równą wartości liValue
 
 function createPads(){
     const listItems = document.querySelectorAll('.padsLi');
@@ -16,8 +18,16 @@ function createPads(){
     
     for (let i = 0; i <= listItemsLength; i++) {
         listItems.item(i).addEventListener('click', function(e){
-            
-            console.log(e.target.childNodes.text);
+            let target = e.target;
+            let firstChild = target.firstChild;
+            let numberOfpads = firstChild.data;
+
+            let padElement = document.createElement('div');
+            padElement.classList.add('drum-pad');
+
+            let drumPadsContainer = document.getElementsByClassName('drum-pads-container')[0];
+            drumPadsContainer.appendChild(padElement);
+            console.log(padElement);
         })
     }
 }
