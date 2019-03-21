@@ -34,6 +34,9 @@ function createPadsElements(e){
     //Close .padsUl when user clicks on listItem
     document.querySelector('.padsUl').classList.remove('listDisplay');
 
+    //Add proper CSS properties to .drum-pads-container, to create proper grid
+    drumPadsContainer.classList.add(`grid-for-${numberOfpads}-pads`);
+
     //Remove childs of drumPadsElemnt when user clicks on listItem to show only pointed number of pads
     // instead of add extra pads to already existing.
     while (drumPadsContainer.hasChildNodes()) {
