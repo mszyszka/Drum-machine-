@@ -15,12 +15,14 @@ body {
 h1 {
     color: #fff;
     text-transform: uppercase;
-    padding: 0 0 0 50px;
-    margin: 50px 0 25px 0;
-    font-size: 36px;
+    padding: 0 0 0 25px;
+    margin: 0 0 50px 0;
+    font-size: 20px;
+    grid-area: h1;
 }
 .padsButton {
-    margin: 0 0 0 50px;
+    grid-area: padsButton;
+    justify-self: center;
     background: none;
     border: 2px solid #fff;
     padding: 10px 10px;
@@ -29,14 +31,17 @@ h1 {
     outline: none;
     text-transform: uppercase;
     cursor: pointer;
+    width: 200px;
 
 }
 .padsUl {
+    grid-area: padsUL;
+    justify-self: center;
     background: #fff;
     text-align: center;
-    width: 182px;
-    margin: 0 0 0 50px;
+    width: 200px;
     display: none;
+    transition: all ease-in-out 0.2s;
     li {
         padding: 10px 0;
         font-size: 16px;
@@ -50,7 +55,17 @@ h1 {
     display: block;
 }
 
-main {
+.container {
+    height: 100vh;
+    padding: 25px 0 0 0;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto 100%;
+    grid-template-areas: 
+    'h1'
+    'padsButton'
+    'padsUL'
+    'drumPadsContainer';
     .grid-for-2-pads {
         grid-template-columns: 110px 110px;
         grid-template-rows: 110px;
@@ -67,19 +82,28 @@ main {
         grid-template-columns: 110px 110px;
         grid-template-rows: repeat(4, 110px);
     }
-    .grid-for-10-pads {
-        grid-template-columns: 110px 110px;
-        grid-template-rows: repeat(5, 110px);
+    .grid-for-9-pads {
+        grid-template-columns: 100px 100px 100px;
+        grid-template-rows: repeat(3, 100px);
+        .drum-pad {
+            width: 100px!important;
+            height: 100px!important;
+        }        
     }
     .grid-for-12-pads {
-        grid-template-columns: 110px 110px;
-        grid-template-rows: repeat(6, 110px);
+        grid-template-columns: 100px 100px 100px;
+        grid-template-rows: repeat(4, 100px);
+        .drum-pad {
+            width: 100px!important;
+            height: 100px!important;
+        }
     }
     .drum-pads-container {
+        grid-area: drumPadsContainer;
         display: grid;
         justify-content: center;
         grid-gap: 15px;
-        padding: 50px 0 50px 0;
+        padding: 50px 0 0 0;
         .drum-pad {
             background: white;
             width: 110px;

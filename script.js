@@ -9,7 +9,11 @@
 //Toggle .listDisplay on .padsUl element
 function displayingPadsUl() {
     const ul = document.querySelector('.padsUl');
+    const li = document.querySelector('.padsUl li');
+
     ul.classList.toggle('listDisplay');
+    li.classList.toggle('listDisplay');
+
 }
 
 const padsBtn = document.querySelector('.padsButton');
@@ -34,6 +38,12 @@ function createPadsElements(e){
     //Close .padsUl when user clicks on listItem
     document.querySelector('.padsUl').classList.remove('listDisplay');
 
+    //Check if .drum-pad-container already have additional class
+    for(let i = 0; i <= 12; i++){
+        let containAdditionalClass = drumPadsContainer.classList.contains(`grid-for-${i}-pads`);
+        if (containAdditionalClass == true) drumPadsContainer.classList.remove(`grid-for-${i}-pads`);
+
+    }
     //Add proper CSS properties to .drum-pads-container, to create proper grid
     drumPadsContainer.classList.add(`grid-for-${numberOfpads}-pads`);
 
