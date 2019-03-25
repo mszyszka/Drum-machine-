@@ -6,22 +6,15 @@
 //3.Potrzębuję napisać kod który stworzy plansze z ilościę padów równą wartości liValue - done
 
 
-//Toggle .listDisplay on .padsUl element
+//Toggle .listDisplay on .pads-ul element
 function displayingPadsUl() {
-    const ul = document.querySelector('.padsUl');
-    const li = document.querySelector('.padsUl li');
+    const ul = document.querySelector('.pads-ul');
+    const li = document.querySelector('.pads-ul li');
 
     ul.classList.toggle('listDisplay');
     li.classList.toggle('listDisplay');
 
 }
-
-const padsBtn = document.querySelector('.padsButton');
-//After click on .padsButton execute displayingPadsUl()
-padsBtn.addEventListener('click', displayingPadsUl);
-padsBtn.addEventListener('click', addClickEventToListItems);
-
-
 
 function createPadsElements(e){
             
@@ -35,11 +28,11 @@ function createPadsElements(e){
     let padElement = document.createElement('div');
     padElement.classList.add('drum-pad');
 
-    //Close .padsUl when user clicks on listItem
-    document.querySelector('.padsUl').classList.remove('listDisplay');
+    //Close .pads-ul when user clicks on listItem
+    document.querySelector('.pads-ul').classList.remove('listDisplay');
 
     //Check if .drum-pad-container already have additional class
-    for(let i = 0; i <= 12; i++){
+    for(let i = 0; i < 12; i++){
         let containAdditionalClass = drumPadsContainer.classList.contains(`grid-for-${i}-pads`);
         if (containAdditionalClass == true) drumPadsContainer.classList.remove(`grid-for-${i}-pads`);
 
@@ -57,18 +50,17 @@ function createPadsElements(e){
         //Add to .drum-pads-container padElement's
         drumPadsContainer.appendChild(padElement.cloneNode());
     }
-    
 }
 
 function addClickEventToListItems(){
     const listItems = document.querySelectorAll('.padsLi');
-    const listItemsLength = listItems.length;
-
-    for (let i = 0; i <= listItemsLength; i++) {
-        listItems.item(i).addEventListener('click', createPadsElements);
-    }
-
+    listItems.forEach( item => item.addEventListener('click', createPadsElements));
 }
+
+const padsBtn = document.querySelector('.pads-button');
+//After click on .pads-button execute displayingPadsUl()
+padsBtn.addEventListener('click', displayingPadsUl);
+padsBtn.addEventListener('click', addClickEventToListItems);
 
 
 
